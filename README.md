@@ -1,6 +1,25 @@
 # Scala Dropwizard OAuth Consumer
 
-A dropwizard oauth consumer written in Scala
+A dropwizard oauth consumer written in Scala. Given an oauth provider url, app key and app secret, this application will:
+ * Redirect the user to the OAuth Provider
+ * Assuming the user authorizes the Application, they will be returned to `/oauth/callback`
+ * The Application will then take the provided `code` and retrieve the bearer token.
+ * The `token` as well `uid` is then saved to the database.
+
+## Motivation
+
+I wanted to build an API on top of Dropbox using Scala and Dropwizard. The Dropbox SDK providers OAuth 2 authorization, but it requires access to the Session, which Dropwizard doesn't provide. So I built an OAuth2 consumer.
+
+## Dependencies
+
+ * Scala 2.10
+ * [Dropwizard](http://dropwizard.github.io/dropwizard/) 0.7.0-rc2
+ * Dropwizard Hibernate 0.7.0-rc2
+ * Dropwizard Migrations 0.7.0-rc2
+ * [Dropwizard Scala](https://github.com/bretthoerner/dropwizard-scala) 0.7.0-rc1
+ * [Dispatch](http://dispatch.databinder.net/Dispatch.html) 0.11.0
+ * [json4s](https://github.com/json4s/json4s) 3.2.7
+ * postgresql
 
 ## Configuring
 ```yaml
@@ -58,8 +77,18 @@ Or clean build the "fat" jar
 sbt clean assembly
 ```
 
+## Migrate the Database
+
+```sh
+java -jar target/scala-2.10/scala-dropwizard-oauth-consumer-assembly-0.1.jar db migrate config.yml
+```
+
 ## Running
 
 ```sh
 java -jar target/scala-2.10/scala-dropwizard-oauth-consumer-assembly-0.1.jar server config.yml
 ```
+
+## ToDo
+
+Remove the last hardcoded reference to Dropbox (in `OAuthCallbackResource.scala`)
