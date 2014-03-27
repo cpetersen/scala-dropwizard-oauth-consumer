@@ -91,7 +91,7 @@ java -jar target/scala-2.10/scala-dropwizard-oauth-consumer-assembly-0.1.jar ser
 
 ## Using it
 
-Once the app is running, visit http://localhost:8080/oauth
+Once the app is running, visit [http://localhost:8080/oauth](http://localhost:8080/oauth)
 
 ## ToDo
 
