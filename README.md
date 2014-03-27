@@ -17,9 +17,10 @@ I wanted to build an API on top of Dropbox using Scala and Dropwizard. The Dropb
  * Dropwizard Hibernate 0.7.0-rc2
  * Dropwizard Migrations 0.7.0-rc2
  * [Dropwizard Scala](https://github.com/bretthoerner/dropwizard-scala) 0.7.0-rc1
- * [Dispatch](http://dispatch.databinder.net/Dispatch.html) 0.11.0
- * [json4s](https://github.com/json4s/json4s) 3.2.7
+ * [Dispatch](http://dispatch.databinder.net/Dispatch.html) 0.11.0 - For remote calls
+ * [json4s](https://github.com/json4s/json4s) 3.2.7 - For JSON parsing
  * postgresql
+ * [Assembly](https://github.com/sbt/sbt-assembly) 0.11.1 - For building "fat jars"
 
 ## Configuring
 ```yaml
@@ -65,13 +66,13 @@ database:
 
 ## Building
 
-Build the "fat" jar
+Build the "fat jar"
 
 ```sh
 sbt assembly
 ```
 
-Or clean build the "fat" jar
+Or clean build the "fat jar"
 
 ```sh
 sbt clean assembly
