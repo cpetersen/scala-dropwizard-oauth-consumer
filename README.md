@@ -89,6 +89,10 @@ java -jar target/scala-2.10/scala-dropwizard-oauth-consumer-assembly-0.1.jar db 
 java -jar target/scala-2.10/scala-dropwizard-oauth-consumer-assembly-0.1.jar server config.yml
 ```
 
+## Using it
+
+Once the app is running, visit http://localhost:8080/oauth
+
 ## ToDo
 
  1. Remove the last hardcoded reference to Dropbox (in `OAuthCallbackResource.scala`)
