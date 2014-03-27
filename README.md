@@ -91,4 +91,6 @@ java -jar target/scala-2.10/scala-dropwizard-oauth-consumer-assembly-0.1.jar ser
 
 ## ToDo
 
-Remove the last hardcoded reference to Dropbox (in `OAuthCallbackResource.scala`)
+ 1. Remove the last hardcoded reference to Dropbox (in `OAuthCallbackResource.scala`)
+ 2. Add a `HealthCheck` or two
+ 3. Add some tests
